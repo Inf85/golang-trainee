@@ -8,7 +8,9 @@ import "./routes"
 
 func main() {
 
-	routes := routes.RegisterRoutes();
+	routes := routes.RegisterRoutes()
 	fmt.Println("Server is starting and listening ...")
 	http.ListenAndServe(":8080", routes)
+
+
 }
