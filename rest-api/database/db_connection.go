@@ -12,6 +12,8 @@ func SetDBConnection() *gorm.DB {
 	dsn:= "root@tcp(127.0.0.1:3306)/golang?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{ QueryFields: true})
 
+	sqlDB, err := db.DB()
+	sqlDB.SetMaxIdleConns(10)
 
 	if err != nil{
 		panic(err)

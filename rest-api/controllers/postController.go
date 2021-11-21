@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"../helpers"
 	"../models/post"
 	"encoding/json"
 	"github.com/gorilla/mux"
@@ -28,13 +29,8 @@ func (PostController)GetAllPosts(typeResponse string) http.HandlerFunc {
 			panic(err)
 		}
 
-		if typeResponse == "json" {
-			resultJSON, _ := json.Marshal(res)
+	   helpers.TypeResponse(res, typeResponse, writer)
 
-			writer.Header().Set("Content-Type", "application/json")
-			writer.WriteHeader(http.StatusOK)
-			writer.Write(resultJSON)
-		}
 	})
 }
 
@@ -54,20 +50,7 @@ func (PostController)GetPostByID(typeResponse string)  http.HandlerFunc {
 			panic(err)
 		}
 
-		if typeResponse == "json" {
-			writer.Header().Set("Content-Type", "application/json")
-			writer.WriteHeader(http.StatusOK)
-
-			if  len(res) == 0{
-				var errMsg map[string]string = map[string]string{"Result":"Error", "Message":"Record Not Found"}
-
-				resultJSON, _ := json.Marshal(errMsg)
-				writer.Write(resultJSON)
-			}else {
-				resultJSON, _ := json.Marshal(res)
-				writer.Write(resultJSON)
-			}
-		}
+		helpers.TypeResponse(res, typeResponse, writer)
 
 	})
 
