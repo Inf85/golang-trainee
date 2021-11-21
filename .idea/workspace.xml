@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-
     <list default="true" id="e7846a6e-66e3-44d7-87fc-4603b177d9ad" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/rest-api/helpers/typeResponse.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -11,7 +10,6 @@
       <change beforePath="$PROJECT_DIR$/rest-api/models/comment/comment.go" beforeDir="false" afterPath="$PROJECT_DIR$/rest-api/models/comment/comment.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rest-api/routes/routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/rest-api/routes/routes.go" afterDir="false" />
     </list>
-
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,7 +54,6 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-
     <configuration name="go build main.go (2)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="goBeginer" />
       <working_directory value="$PROJECT_DIR$" />
@@ -65,7 +62,6 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="goBeginer" />
       <working_directory value="$PROJECT_DIR$" />
@@ -86,7 +82,6 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-
   <component name="Vcs.Log.Tabs.Properties">
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
@@ -99,7 +94,6 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="728" y="350" key="#com.intellij.tools.ToolEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1637142371098" />
-
     <state x="707" y="385" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1637262600586">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -128,7 +122,6 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1637142479832" />
-
     <state x="803" y="281" key="refactoring.ChangeSignatureDialog" timestamp="1637443217661">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
