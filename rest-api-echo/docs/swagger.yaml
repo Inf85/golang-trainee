@@ -1,0 +1,338 @@
+definitions:
+  comments.Comments:
+    properties:
+      body:
+        type: string
+      email:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      post_id:
+        type: integer
+    type: object
+  posts.Comments:
+    properties:
+      body:
+        type: string
+      email:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      post_id:
+        type: integer
+    type: object
+  posts.Posts:
+    properties:
+      body:
+        type: string
+      comment:
+        items:
+          $ref: '#/definitions/posts.Comments'
+        type: array
+      id:
+        type: integer
+      title:
+        type: string
+      user_id:
+        type: integer
+    type: object
+info:
+  contact:
+    name: Api Support
+  description: This is a sample Rest Api.
+  title: Swagger Example API
+  version: "1.0"
+paths:
+  /comment:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Comment Record By ID
+      parameters:
+      - description: id
+        in: query
+        name: id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "500":
+          description: ""
+      summary: Delete Comment Record By ID
+      tags:
+      - Comments
+    post:
+      consumes:
+      - application/json
+      description: Create Comment Record
+      parameters:
+      - description: postId
+        in: formData
+        name: postId
+        type: string
+      - description: email
+        in: formData
+        name: email
+        type: string
+      - description: name
+        in: formData
+        name: name
+        type: string
+      - description: body
+        in: formData
+        name: body
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "500":
+          description: ""
+      summary: Create Comment Record
+      tags:
+      - Comments
+  /json/comments:
+    get:
+      consumes:
+      - application/json
+      description: get all Comments
+      produces:
+      - application/json
+      - text/xml
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/posts.Posts'
+            type: array
+        "500":
+          description: ""
+      summary: Show all Comments
+      tags:
+      - Comments
+  /json/comments/{id}:
+    get:
+      consumes:
+      - application/json
+      description: get  Comment record By ID
+      parameters:
+      - description: id
+        in: query
+        name: id
+        type: string
+      produces:
+      - application/json
+      - text/xml
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/comments.Comments'
+            type: array
+        "500":
+          description: ""
+      summary: Show Comment Record By ID
+      tags:
+      - Comments
+  /json/posts:
+    get:
+      consumes:
+      - application/json
+      description: get all Posts records
+      produces:
+      - application/json
+      - text/xml
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/posts.Posts'
+            type: array
+        "500":
+          description: ""
+      summary: Show all Post in json
+      tags:
+      - Posts
+  /json/posts/{id}:
+    get:
+      consumes:
+      - application/json
+      description: get  Post record By ID
+      parameters:
+      - description: id
+        in: query
+        name: id
+        type: string
+      produces:
+      - application/json
+      - text/xml
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/posts.Posts'
+            type: array
+        "500":
+          description: ""
+      summary: Show Post Record By ID
+      tags:
+      - Posts
+  /post:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Post Record By ID
+      parameters:
+      - description: id
+        in: query
+        name: id
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "500":
+          description: ""
+      summary: Delete Post Record By ID
+      tags:
+      - Posts
+    post:
+      consumes:
+      - application/json
+      description: Create Post Record
+      parameters:
+      - description: userId
+        in: formData
+        name: userId
+        type: string
+      - description: title
+        in: formData
+        name: title
+        type: string
+      - description: body
+        in: formData
+        name: body
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "500":
+          description: ""
+      summary: Create Post Record
+      tags:
+      - Posts
+  /xml/comments:
+    get:
+      consumes:
+      - application/json
+      description: get all Comments
+      produces:
+      - application/json
+      - text/xml
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/posts.Posts'
+            type: array
+        "500":
+          description: ""
+      summary: Show all Comments
+      tags:
+      - Comments
+  /xml/comments/{id}:
+    get:
+      consumes:
+      - application/json
+      description: get  Comment record By ID
+      parameters:
+      - description: id
+        in: query
+        name: id
+        type: string
+      produces:
+      - application/json
+      - text/xml
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/comments.Comments'
+            type: array
+        "500":
+          description: ""
+      summary: Show Comment Record By ID
+      tags:
+      - Comments
+  /xml/posts:
+    get:
+      consumes:
+      - application/json
+      description: get all Posts records
+      produces:
+      - application/json
+      - text/xml
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/posts.Posts'
+            type: array
+        "500":
+          description: ""
+      summary: Show all Post in json
+      tags:
+      - Posts
+  /xml/posts/{id}:
+    get:
+      consumes:
+      - application/json
+      description: get  Post record By ID
+      parameters:
+      - description: id
+        in: query
+        name: id
+        type: string
+      produces:
+      - application/json
+      - text/xml
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/posts.Posts'
+            type: array
+        "500":
+          description: ""
+      summary: Show Post Record By ID
+      tags:
+      - Posts
+swagger: "2.0"
+x-extension-openapi:
+  example: value on a json format

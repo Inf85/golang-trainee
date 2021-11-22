@@ -1,6 +1,11 @@
 package posts
 
-import "../../database"
+import (
+	"../../database"
+	"gorm.io/gorm"
+	"net/http"
+	"strconv"
+)
 
 /*
 Posts Struct
@@ -46,4 +51,33 @@ func (postModel *Posts) GetPostByID(id string) ([]Posts, error) {
 	db.Preload("Comments").Find(&post, id)
 
 	return post, nil
+}
+
+/*
+Create - Create Record in database
+ */
+func (postModel *Posts) Create(data *http.Request) (*gorm.DB, error) {
+	db := dbconnect.SetDBConnection()
+
+	userID, _ := strconv.Atoi(data.FormValue("userId"))
+	title := data.FormValue("title")
+	body := data.FormValue("body")
+
+	postData := Posts{UserID: userID, Title: title, Body: body}
+
+	result := db.Create(&postData)
+
+	return result, nil
+}
+
+/*
+DeleteByID - Delete Record from database by ID
+ */
+func (postModel * Posts) DeleteByID(id string) (*gorm.DB, error)  {
+	var post []Posts
+	db := dbconnect.SetDBConnection()
+
+	result := db.Delete(&post, id)
+
+	return result, nil
 }
