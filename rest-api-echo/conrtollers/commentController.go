@@ -12,6 +12,12 @@ CommentController - commentController Struct
  */
 type CommentController struct {}
 
+
+func NewCommentController() *CommentController {
+	return &CommentController{}
+}
+
+
 /*
 GetAllComments - Get All Comments From DataBase
  */

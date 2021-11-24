@@ -21,7 +21,7 @@ type Comments struct {
 /*
 GetAll - Get All Comments From DataBase
 */
-func (commentsModel Comments) GetAll() ([]Comments, error) {
+func (commentsModel *Comments) GetAll() ([]Comments, error) {
 	var comments []Comments
 
 	db := dbconnect.SetDBConnection()
@@ -33,7 +33,7 @@ func (commentsModel Comments) GetAll() ([]Comments, error) {
 /*
 GetByID - Get Comment Record By ID
  */
-func (commentsModel Comments) GetByID(id string) ([]Comments, error)  {
+func (commentsModel *Comments) GetByID(id string) ([]Comments, error)  {
 	var comment []Comments
 
 	db := dbconnect.SetDBConnection()
@@ -45,7 +45,7 @@ func (commentsModel Comments) GetByID(id string) ([]Comments, error)  {
 /*
 Create - Create Comment Record
  */
-func (commentsModel Comments) Create(data *http.Request)  (*gorm.DB, error) {
+func (commentsModel *Comments) Create(data *http.Request)  (*gorm.DB, error) {
 	db := dbconnect.SetDBConnection()
 
 	postID, _ := strconv.Atoi(data.FormValue("postId"))
@@ -63,7 +63,7 @@ func (commentsModel Comments) Create(data *http.Request)  (*gorm.DB, error) {
 /*
 DeleteByID - delete comment record from DataBase
  */
-func (commentsModel Comments) DeleteByID(id string) (*gorm.DB, error)  {
+func (commentsModel *Comments) DeleteByID(id string) (*gorm.DB, error)  {
 	var comment []Comments
 
 	db := dbconnect.SetDBConnection()

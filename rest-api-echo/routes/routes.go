@@ -10,27 +10,35 @@ import "../conrtollers"
 RegisterRoutes - Routes List
  */
 func RegisterRoutes(e *echo.Echo)  {
-	postController := conrtollers.PostController{}
-	commentController := conrtollers.CommentController{}
+	postController := conrtollers.NewPostController()
+	commentController := conrtollers.NewCommentController()
+	authController := conrtollers.AuthController{}
 
 	e.GET("/swagger/*", echoSwagger.WrapHandler)
+	e.POST("/register", authController.SignUp)
+	e.POST("/sign-in", authController.SignIn)
 
-	/*        Post Routing  */
-	e.GET("/json/posts", postController.GetAllPosts("json"))
-	e.GET("/xml/posts", postController.GetAllPosts("xml"))
-	e.GET("/json/post/:id", postController.GetByID("json"))
-	e.GET("/xml/post/:id", postController.GetByID("xml"))
+	apiGroup := e.Group("/api")
+	{
+		apiGroup.Use(UserIdenty)
 
-	e.POST("/post", postController.Create)
-	e.DELETE("/post", postController.Delete)
+		/*        Post Routing  */
+		apiGroup.GET("/json/posts", postController.GetAllPosts("json"))
+		apiGroup.GET("/xml/posts", postController.GetAllPosts("xml"))
+		apiGroup.GET("/json/post/:id", postController.GetByID("json"))
+		apiGroup.GET("/xml/post/:id", postController.GetByID("xml"))
 
-	/* Comments Routing     */
+		apiGroup.POST("/post", postController.Create)
+		apiGroup.DELETE("/post", postController.Delete)
 
-	e.GET("/json/comments", commentController.GetAllComments("json"))
-	e.GET("/json/comments/:id", commentController.GetCommentByID("json"))
-	e.GET("/xml/comments", commentController.GetAllComments("xml"))
-	e.GET("/xml/comments/:id", commentController.GetCommentByID("xml"))
+		/* Comments Routing     */
 
-	e.POST("/comment", commentController.Create)
-	e.DELETE("/comment", commentController.DeleteByID)
+		apiGroup.GET("/json/comments", commentController.GetAllComments("json"))
+		apiGroup.GET("/json/comments/:id", commentController.GetCommentByID("json"))
+		apiGroup.GET("/xml/comments", commentController.GetAllComments("xml"))
+		apiGroup.GET("/xml/comments/:id", commentController.GetCommentByID("xml"))
+
+		apiGroup.POST("/comment", commentController.Create)
+		apiGroup.DELETE("/comment", commentController.DeleteByID)
+	}
 }

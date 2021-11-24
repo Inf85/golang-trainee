@@ -7,10 +7,18 @@ import (
 import "../models/posts"
 import "../helpers/response"
 import _ "../docs"
+
 /*
 PostController - Post Controller
 */
 type PostController struct{}
+
+/*
+NewPostController - Constructor
+*/
+func NewPostController() *PostController {
+	return &PostController{}
+}
 
 /*
 GetAllPosts - Get All Posts From DataBase
@@ -37,7 +45,7 @@ func (postController *PostController) GetAllPosts(typeResponse string) echo.Hand
 		}
 
 		if len(result) > 0 {
-			responsehelper.XMLJSONResponseHelper(result, typeResponse, context)
+			return responsehelper.XMLJSONResponseHelper(result, typeResponse, context)
 		} else {
 			return context.NoContent(http.StatusNoContent)
 		}
