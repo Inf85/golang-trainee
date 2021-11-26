@@ -11,7 +11,7 @@ import (
 
 /*
 User - User Struct
- */
+*/
 type User struct {
 	ID       int    `json:"id"`
 	Login    string `json:"login" binding:"required" form:"login"`
@@ -22,14 +22,14 @@ type User struct {
 
 /*
 CreateUser - Create User in DataBase
- */
-func (u *User) CreateUser(user User) (int,*echo.HTTPError, error) {
+*/
+func (u *User) CreateUser(user User) (int, *echo.HTTPError, error) {
 	db := dbconnect.SetDBConnection()
 	result := db.Where("login = ?", user.Login).First(&user)
 
 	if !errors.Is(result.Error, gorm.ErrRecordNotFound) {
 
-		return 0, nil,responsehelper.BadDataErrorResponse(http.StatusBadRequest, "User With Same Login in exists")
+		return 0, nil, responsehelper.BadDataErrorResponse(http.StatusBadRequest, "User With Same Login in exists")
 	}
 
 	postData := User{Login: user.Login, Password: user.Password, Name: user.Name}
@@ -41,12 +41,31 @@ func (u *User) CreateUser(user User) (int,*echo.HTTPError, error) {
 
 /*
 GetUser - Get USer By login and Password
- */
-func (u *User) GetUser(userName string, password string) (User, error){
+*/
+func (u *User) GetUser(userName string, password string) (User, error) {
 	var user User
 
 	db := dbconnect.SetDBConnection()
 	db.Where("login = ? AND password = ?", userName, password).First(&user)
+
+	return user, nil
+}
+
+/*
+GetUserByLogin - Get User By Login
+*/
+func (u *User) GetUserByLogin(login string) (User, error) {
+	var user User
+
+	db := dbconnect.SetDBConnection()
+	result := db.Where("login = ?", login).First(&user)
+
+	if errors.Is(result.Error, gorm.ErrRecordNotFound) {
+
+		postData := User{Login: login}
+		db.Create(&postData)
+		return postData, nil
+	}
 
 	return user, nil
 }

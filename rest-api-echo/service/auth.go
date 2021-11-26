@@ -16,7 +16,7 @@ const signingKey = "qrkjk#4#%35FSFJlja#4353KSFjH"
 
 type tokenClaims struct {
 	jwt.StandardClaims
-	UserId int `json:"user_id"`
+	UserID int `json:"user_id"`
 }
 
 /*
@@ -65,7 +65,7 @@ func (s *AuthService)GenerateToken(userName string, password string)  (string, e
 }
 
 /*
-ParsingToken
+ParsingToken - ParsingToken
  */
 func (s *AuthService)ParsingToken(accessToken string) (int, error)  {
 	token, err := jwt.ParseWithClaims(accessToken, &tokenClaims{}, func(token *jwt.Token) (interface{}, error) {
@@ -86,7 +86,7 @@ func (s *AuthService)ParsingToken(accessToken string) (int, error)  {
 		return 0, errors.New("Error claims")
 	}
 
-	return claims.UserId, nil
+	return claims.UserID, nil
 }
 
 /*

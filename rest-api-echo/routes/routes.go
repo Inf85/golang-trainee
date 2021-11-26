@@ -12,21 +12,22 @@ RegisterRoutes - Routes List
 func RegisterRoutes(e *echo.Echo)  {
 	postController := conrtollers.NewPostController()
 	commentController := conrtollers.NewCommentController()
+	googleController := conrtollers.NewGoogleController()
 	authController := conrtollers.AuthController{}
 
 	e.GET("/swagger/*", echoSwagger.WrapHandler)
 	e.POST("/register", authController.SignUp)
 	e.POST("/sign-in", authController.SignIn)
 
-	apiGroup := e.Group("/api")
+	var apiGroup = e.Group("/api")
 	{
 		apiGroup.Use(UserIdenty)
 
 		/*        Post Routing  */
 		apiGroup.GET("/json/posts", postController.GetAllPosts("json"))
 		apiGroup.GET("/xml/posts", postController.GetAllPosts("xml"))
-		apiGroup.GET("/json/post/:id", postController.GetByID("json"))
-		apiGroup.GET("/xml/post/:id", postController.GetByID("xml"))
+		apiGroup.GET("/json/post/:id", postController.GetByID("json", nil))
+		apiGroup.GET("/xml/post/:id", postController.GetByID("xml", nil))
 
 		apiGroup.POST("/post", postController.Create)
 		apiGroup.DELETE("/post", postController.Delete)
@@ -40,5 +41,11 @@ func RegisterRoutes(e *echo.Echo)  {
 
 		apiGroup.POST("/comment", commentController.Create)
 		apiGroup.DELETE("/comment", commentController.DeleteByID)
+	}
+
+	var googleURL = e.Group("/auth/google")
+	{
+		googleURL.Any("/callback", googleController.GoogleOAuthCallBack)
+		googleURL.Any("/login", googleController.Login)
 	}
 }

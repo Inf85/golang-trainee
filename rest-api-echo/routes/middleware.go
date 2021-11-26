@@ -10,12 +10,15 @@ import "../service"
 const authHeader = "Authorization"
 const usrContext = "userId"
 
+/*
+HandlerFunc - Struct
+ */
 type HandlerFunc struct {
 
 }
 
 /*
-UserIdenty
+UserIdenty - User Middleware
  */
 func UserIdenty(next echo.HandlerFunc) echo.HandlerFunc {
 	return func(context echo.Context) error {

@@ -6,7 +6,6 @@ import (
 )
 import "../models/posts"
 import "../helpers/response"
-import _ "../docs"
 
 /*
 PostController - Post Controller
@@ -19,7 +18,13 @@ NewPostController - Constructor
 func NewPostController() *PostController {
 	return &PostController{}
 }
+var(
+	MockDB = map[string]*posts.Posts{
+		"testPost": &posts.Posts{100, 500,  "testPost", "test",  []posts.Comments{}},
+	}
 
+	postJson = `{"id":500,user_id":100, "title":"testPost", "body":"test","comment":""}`
+)
 /*
 GetAllPosts - Get All Posts From DataBase
 */
@@ -69,7 +74,7 @@ GetByID - Get Post Record By ID
 // @Param id query string false "id"
 // @Success 200 {array} posts.Posts
 // @Failure 500
-func (postController *PostController) GetByID(typeResponse string) echo.HandlerFunc {
+func (postController *PostController) GetByID(typeResponse string, c echo.Context) echo.HandlerFunc {
 	return func(context echo.Context) error {
 		postModel := &posts.Posts{}
 		id := context.Param("id")

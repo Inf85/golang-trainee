@@ -12,7 +12,9 @@ CommentController - commentController Struct
  */
 type CommentController struct {}
 
-
+/*
+NewCommentController - Constructor
+ */
 func NewCommentController() *CommentController {
 	return &CommentController{}
 }
