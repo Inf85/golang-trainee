@@ -28,12 +28,10 @@ func (u *User) CreateUser(user User) (int, *echo.HTTPError, error) {
 	result := db.Where("login = ?", user.Login).First(&user)
 
 	if !errors.Is(result.Error, gorm.ErrRecordNotFound) {
-
 		return 0, nil, responsehelper.BadDataErrorResponse(http.StatusBadRequest, "User With Same Login in exists")
 	}
 
 	postData := User{Login: user.Login, Password: user.Password, Name: user.Name}
-
 	db.Create(&postData)
 
 	return postData.ID, nil, nil
@@ -44,7 +42,6 @@ GetUser - Get USer By login and Password
 */
 func (u *User) GetUser(userName string, password string) (User, error) {
 	var user User
-
 	db := dbconnect.SetDBConnection()
 	db.Where("login = ? AND password = ?", userName, password).First(&user)
 
@@ -61,7 +58,6 @@ func (u *User) GetUserByLogin(login string) (User, error) {
 	result := db.Where("login = ?", login).First(&user)
 
 	if errors.Is(result.Error, gorm.ErrRecordNotFound) {
-
 		postData := User{Login: login}
 		db.Create(&postData)
 		return postData, nil

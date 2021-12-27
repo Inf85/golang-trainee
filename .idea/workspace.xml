@@ -5,39 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7846a6e-66e3-44d7-87fc-4603b177d9ad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/conrtollers/authController.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/conrtollers/commentController.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/conrtollers/comments/interface.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/conrtollers/googleController.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/conrtollers/postContoller_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/conrtollers/postController.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/database/comments/storage.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/database/db_connect.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/docs/docs.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/docs/swagger.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/docs/swagger.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/helpers/response/response.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/helpers/response/responseHelper.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/helpers/service-manager/service-manager.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/main_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/models/comments/commentModel.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/models/comments/repository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/models/comments/service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/models/comments/storage.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/models/posts/postModel.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/models/posts/repository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/models/posts/service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/models/posts/storage.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/models/user/userModel.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/routes/middleware.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/routes/routes.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/service/auth.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/service/google_auth.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-api-echo/service/service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-api-echo/conrtollers/comments/interface.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-api-echo/conrtollers/postContoller_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/rest-api-echo/conrtollers/postContoller_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-api-echo/main_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/rest-api-echo/main_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-api-echo/models/user/userModel.go" beforeDir="false" afterPath="$PROJECT_DIR$/rest-api-echo/models/user/userModel.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +58,7 @@
     <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.watchers.conflict.with.on.save.actions.check.performed" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ca-library-app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>

@@ -6,7 +6,7 @@ import (
 )
 import "./routes"
 
-func TestMain(m *testing.M)  {
+func TestMain(m *testing.M) {
 
 	e := echo.New()
 	routes.RegisterRoutes(e)
